@@ -1,0 +1,169 @@
+*,
+*::after,
+*::before {
+  margin: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 50%;
+}
+body {
+  font-size: 2rem;
+}
+li {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+  color: white;
+}
+.nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  height: 8vh;
+  background: #f85818;
+}
+.doggo {
+  font-weight: bold;
+  font-size: 17px;
+}
+
+.navMenu {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  gap: 20rem;
+}
+.name::after {
+  content: "";
+  height: 2px;
+  width: 0%;
+  background-color: white;
+  display: block;
+  transition: 0.5s ease-in-out;
+}
+
+.name:hover::after {
+  content: "";
+  height: 2px;
+  width: 100%;
+  background-color: white;
+  display: block;
+}
+
+.navToggle div {
+  width: 2.5rem;
+  height: 0.25rem;
+  margin: 0.4rem;
+  background: white;
+}
+
+.navToggle {
+  cursor: pointer;
+  display: none;
+}
+
+@media screen and (max-width: 800px) {
+  .navToggle {
+    display: block;
+  }
+  .navMenu {
+    font-size: 15px;
+    flex-direction: column;
+    position: absolute;
+    top: 7vh;
+    right: 0;
+    width: 25%;
+    height: 50vh;
+    background: #f85818;
+    transform: translateX(100%);
+    transition: 0.3s ease;
+    z-index: 3;
+    gap: 0;
+  }
+}
+
+.navActive {
+  transform: translateX(0%);
+}
+.signUp {
+  background: white;
+  color: #f85818;
+  border: 2px solid white;
+  border-radius: 5px;
+  padding: 0.3rem;
+}
+.signUp:hover {
+  background: #f85818;
+  color: white;
+  cursor: pointer;
+  transition: 0.6s ease;
+}
+
+.modal2 {
+  background: rgb(255, 115, 0);
+  background: linear-gradient(
+    90deg,
+    rgb(38, 0, 255) 0%,
+    rgba(54, 153, 34, 1) 100%
+  );
+  z-index: 200;
+  position: absolute;
+  border-radius: 25px;
+  display: none;
+  margin-top: 70vh;
+}
+.modal-content2 {
+  display: flex;
+  flex-direction: column;
+  height: 30vh;
+  width: 30vw;
+  align-items: center;
+  gap: 3rem;
+  animation: enlarge 0.5s;
+}
+.inputs {
+  padding: 1rem;
+  display: flex;
+  justify-content: center;
+  animation: fadeIn 2s;
+}
+
+.modal2 h2 {
+  color: white;
+}
+.modal2.active {
+  display: block;
+  animation: enlarge 0.5s;
+  z-index: 1000;
+}
+
+@keyframes enlarge {
+  from {
+    height: 0;
+    width: 0;
+  }
+  to {
+    height: 30vh;
+    width: 30vw;
+  }
+}
+.overlay2 {
+  background: rgba(0, 0, 0, 0.315);
+  height: 100vh;
+  width: 100vw;
+  position: fixed;
+  z-index: -3;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  display: none;
+}
+
+.overlay2.active {
+  display: block;
+}
